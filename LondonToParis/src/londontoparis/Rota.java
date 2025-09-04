@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import londontoparisexception.LondonToParisException;
+import londontoparis.exception.LondonToParisException;
 
 public class Rota {
 	
