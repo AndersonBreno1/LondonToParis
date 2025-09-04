@@ -16,13 +16,16 @@ public class Rota {
 	private Transporte transporte;
 	
 	public Rota(String origem, String destino, double distancia, int id) {
+		validaParametro(origem);
+		validaParametro(destino);
+		validaParametro(distancia);
+		
 		this.origem = origem;
 		this.destino = destino;
 		this.distancia = distancia;
 		this.id = id;
 		this.pontos = new ArrayList<>();
 	}
-
 	public String getOrigem() {
 		return origem;
 	}
@@ -108,4 +111,15 @@ public class Rota {
 	private void validaTransporte() {
 		if (getTransporte() == null) throw new LondonToParisException("Transporte nulo.");
 	}
+
+	private void validaParametro(double param) {
+		if (param < 0) throw new LondonToParisException("Parametro negativo");
+		if (param == 0) throw new LondonToParisException("Parametro nulo");
+	}
+
+	private void validaParametro(String param) {
+		if (param == null) throw new LondonToParisException("Parametro nulo");
+		if ("".equals(param)) throw new LondonToParisException("Parametro nulo");
+	}
+
 }

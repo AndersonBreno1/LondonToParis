@@ -46,7 +46,7 @@ public class Bicicleta implements Transporte {
 		List<String> out = new ArrayList<>();
 		
 		for (PontoDeInteresse pdi : pontos) {
-			if ("bicicleta".equals(pdi.getTipo().toLowerCase())) {
+			if ("hotel".equals(pdi.getTipo().toLowerCase())) {
 				out.add(pdi.toString());
 			}
 		}

@@ -104,7 +104,7 @@ public class LondonToParisController {
 	}
 
 	private boolean temRota(String origem, String destino) {
-		Rota lilRota = new Rota(origem, destino, 0, 0);
+		Rota lilRota = new Rota(origem, destino, 0.1, 0);
 		for (Rota r : this.rotas.values()) {
 			if (r.equals(lilRota)) {
 				return true;
