@@ -1,5 +1,6 @@
-package londonToParis;
+package londontoparis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bicicleta implements Transporte {
@@ -38,5 +39,18 @@ public class Bicicleta implements Transporte {
 		return "Bicicleta" +
 				"\nTipo do terreno: " + tipoTerreno +
 				"\nPernoites: " + pernoites;
+	}
+
+	@Override
+	public List<String> listarPontosDeInteresse(List<PontoDeInteresse> pontos) {
+		List<String> out = new ArrayList<>();
+		
+		for (PontoDeInteresse pdi : pontos) {
+			if ("bicicleta".equals(pdi.getTipo().toLowerCase())) {
+				out.add(pdi.toString());
+			}
+		}
+		
+		return out;
 	}
 }

@@ -1,5 +1,6 @@
-package londonToParis;
+package londontoparis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Trem implements Transporte {
@@ -38,5 +39,18 @@ public class Trem implements Transporte {
 		return "Trem" + 
 				"\nNúmero do trem: " + numTrem +
 				"\nValor da passagem: " + valorPassagem;
+	}
+
+	@Override
+	public List<String> listarPontosDeInteresse(List<PontoDeInteresse> pontos) {
+		List<String> out = new ArrayList<>();
+		
+		for (PontoDeInteresse pdi : pontos) {
+			if ("trem".equals(pdi.getTipo().toLowerCase())) {
+				out.add(pdi.toString());
+			}
+		}
+		
+		return out;
 	}
 }

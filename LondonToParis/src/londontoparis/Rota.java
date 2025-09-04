@@ -1,8 +1,10 @@
-package londonToParis;
+package londontoparis;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import londontoparisexception.LondonToParisException;
 
 public class Rota {
 	
@@ -75,11 +77,35 @@ public class Rota {
 	}
 
 	public double mostrarDistanciaPercorrida() {
-		return this.transporte.calculaDistanciaPercorrida(this.distancia);
+		validaTransporte();
+		
+		return getTransporte().calculaDistanciaPercorrida(this.distancia);
 	}
 
 	public double mostrarTempoGasto() {
-		return this.transporte.calculaTempoGasto(distancia, pontos);
+		validaTransporte();
+		
+		return getTransporte().calculaTempoGasto(distancia, pontos);
 	}
 
+	public String[] mostrarPontosDeInteresseDeTransporteDaRota() {
+		validaTransporte();
+		
+		return emArray(getTransporte().listarPontosDeInteresse(pontos));
+	}
+	
+	private String[] emArray(List<String> lista) {
+		String[] out = new String[lista.size()];
+		int idxOut = 0;
+		
+		for (String elem : lista) {
+			out[idxOut++] = elem;
+		}
+		
+		return out;
+	}
+
+	private void validaTransporte() {
+		if (getTransporte() == null) throw new LondonToParisException("Transporte nulo.");
+	}
 }

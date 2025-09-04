@@ -1,4 +1,4 @@
-package londonToParis;
+package londontoparis;
 
 public class PontoDeInteresse {
 	

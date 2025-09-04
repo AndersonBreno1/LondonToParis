@@ -1,5 +1,6 @@
-package londonToParis;
+package londontoparis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Carro implements Transporte {
@@ -35,5 +36,18 @@ public class Carro implements Transporte {
 	public String formataTransporte() {
 		return "Carro" +
 				"\nRodovia: " + rodovia;
+	}
+
+	@Override
+	public List<String> listarPontosDeInteresse(List<PontoDeInteresse> pontos) {
+		List<String> out = new ArrayList<>();
+		
+		for (PontoDeInteresse pdi : pontos) {
+			if ("carro".equals(pdi.getTipo().toLowerCase())) {
+				out.add(pdi.toString());
+			}
+		}
+		
+		return out;
 	}
 }

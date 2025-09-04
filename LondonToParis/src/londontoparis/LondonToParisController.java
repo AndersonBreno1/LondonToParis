@@ -1,4 +1,4 @@
-package londonToParis;
+package londontoparis;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -73,13 +73,19 @@ public class LondonToParisController {
 		
 		return getRota(idRota).mostrarTempoGasto();
 	}
+	
+	public String[] mostrarPontosDeInteresseDeTransporteDaRota(int idRota) {
+		verificaRota(idRota);
+		
+		return getRota(idRota).mostrarPontosDeInteresseDeTransporteDaRota();
+	}
 	 
-	private String[] emArray(List<String> rotas) {
-		String[] out = new String[rotas.size()];
+	private String[] emArray(List<String> lista) {
+		String[] out = new String[lista.size()];
 		int idxOut = 0;
 		
-		for (String rota : rotas) {
-			out[idxOut++] = rota;
+		for (String elem : lista) {
+			out[idxOut++] = elem;
 		}
 		
 		return out;
